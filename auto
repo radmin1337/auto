@@ -79,7 +79,7 @@ local function FindAndActivateClosestModel()
 
     if closestModel then
         local targetCFrame = CFrame.new(closestModel:GetModelCFrame().p)
-        teleportPlayerToCFrame(targetCFrame, 175)
+        teleportPlayerToCFrame(targetCFrame, 150)
 
         local promptToPress = nil
         for _, descendant in ipairs(closestModel:GetDescendants()) do
@@ -92,21 +92,21 @@ local function FindAndActivateClosestModel()
         if promptToPress then
             wait(0.5)
             promptToPress:InputHoldBegin()
-            wait(0.21)
+            wait(0.3)
             promptToPress:InputHoldEnd()
         end
 
-        wait(0.25)
+        wait(0.5)
         EquipClosestTool()
 
         return true
     else
 		if count ~= 2 then
-			teleportPlayerToCFrame(CFrame.new(596, 3, -175), 175)
-			teleportPlayerToCFrame(CFrame.new(-625, -22, -467), 175)
-			teleportPlayerToCFrame(CFrame.new(-141, 3, -680), 175)
-			teleportPlayerToCFrame(CFrame.new(-136, 3, -111), 175)
-			teleportPlayerToCFrame(CFrame.new(-460, 3, -13), 175)
+			teleportPlayerToCFrame(CFrame.new(596, 3, -175), 150)
+			teleportPlayerToCFrame(CFrame.new(-625, -22, -467), 150)
+			teleportPlayerToCFrame(CFrame.new(-141, 3, -680), 150)
+			teleportPlayerToCFrame(CFrame.new(-136, 3, -111), 150)
+			teleportPlayerToCFrame(CFrame.new(-460, 3, -13), 150)
 			count = count + 1
 		else
 			pcall(function()
@@ -155,5 +155,6 @@ end
 
 while true do
     local success = pcall(FindAndActivateClosestModel)
-    wait(0.05)
+    wait(0.1)
 end
+print("Hello, World!")
